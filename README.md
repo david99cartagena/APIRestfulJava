@@ -2,6 +2,9 @@
 Uso de lenguajes,tecnologias o frameworks Java,Spring Boot,Mysql y Docker Compose 
 ( Incompleto fallo al ejecutar mvnw.cmd spring-boot:run en Spring Boot )
 
+# Referencia de Codigo
+https://www.youtube.com/watch?v=vTu2HQrXtyw
+
 ## Programas
 JDK 17.0.2 para crear maquinas virtuales
 java version "1.8.0_202"
