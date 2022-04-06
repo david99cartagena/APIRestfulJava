@@ -1,5 +1,6 @@
 # APIRestfulJava
-Uso de lenguajes,tecnologias o frameworks ( Java,Spring Boot,Mysql y Docker Compose )
+Uso de lenguajes,tecnologias o frameworks Java,Spring Boot,Mysql y Docker Compose 
+( Incompleto fallo al ejecutar mvnw.cmd spring-boot:run en Spring Boot )
 
 ## Programas
 JDK 17.0.2 para crear maquinas virtuales
@@ -30,3 +31,14 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.202-b08, mixed mode)
 
 ## (Opcional)
 -Se puede usar Azure como alternativa para agilizar la creacion de la maquina virtual y ahorrar pasos para ejecutarlo en Docker o Kubernets.
+
+## configuraciones adicionales
+Usar mvn para ejecutar
+#
+Windows example:
+-mvnw.cmd spring-boot:run
+#
+Unix based:
+-mvwn spring-boot:run 
+
+Acceso usando localhost no se ha solucionado por default entraria al puerto 8080
