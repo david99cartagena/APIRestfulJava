@@ -6,6 +6,7 @@ Acceso usando localhost no se ha solucionado por default entraria al puerto 8080
 
 # Referencia de Codigo
 https://www.youtube.com/watch?v=vTu2HQrXtyw
+https://www.youtube.com/watch?v=VTfFpgaSIDw
 
 ## Programas
 JDK 17.0.2 para crear maquinas virtuales
