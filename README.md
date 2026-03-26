@@ -1,51 +1,87 @@
-# APIRestfulJava
-Uso de lenguajes,tecnologias o frameworks Java,Spring Boot,Mysql y Docker Compose 
-( Incompleto fallo al ejecutar mvnw.cmd spring-boot:run en Spring Boot )
-#
-Acceso usando localhost no se ha solucionado por default entraria al puerto 8080
+# 🚀 ApiRestfulJava - Spring Boot REST API
 
-# Referencia de Codigo
-(https://www.youtube.com/watch?v=vTu2HQrXtyw)
+Este es un proyecto de ejemplo que implementa una API RESTful básica utilizando **Java** con el framework **Spring Boot**. El objetivo es proporcionar un sistema CRUD (Crear, Leer, Actualizar, Borrar) para la gestión de **Personas**.
 
-(https://www.youtube.com/watch?v=VTfFpgaSIDw)
+## 🛠️ Tecnologías y Requerimientos
 
-## Programas
-JDK 17.0.2 para crear maquinas virtuales
-java version "1.8.0_202"
-Java(TM) SE Runtime Environment (build 1.8.0_202-b08)
-Java HotSpot(TM) 64-Bit Server VM (build 25.202-b08, mixed mode)
+- **Lenguaje**: Java 11 (AdoptOpenJDK recomendado)
+- **Framework**: Spring Boot 2.6.6
+- **Base de Datos**: MySQL (PostgreSQL soportado vía Docker Compose)
+- **Persistencia**: Spring Data JPA / Hibernate
+- **Herramientas**:
+  - Apache Maven (vía `mvnw`)
+  - Docker & Docker Compose
+  - Postman / Insomnia (para pruebas de API)
 
-## Editores
--NetBeans IDE 12.6
--Visual studio code 1.66.0
+## 🏗️ Estructura del Proyecto
 
-## Maquinas Virtuales
--Virtual box 6.1.30
--Hyper V Versión: 10.0.22 nativo de windows
+```text
+ApiRestfulJava/
+├── src/main/java/com/example/ApiRestfulJava/     # Código fuente
+│   ├── controlers/                               # Endpoints de la API
+│   ├── models/                                   # Entidades de datos
+│   ├── repositories/                             # Interfaces de JPA
+│   └── services/                                 # Lógica de negocio
+├── src/main/resources/                           # Configuración y recursos
+├── Dockerfile                                    # Configuración de imagen Docker
+├── docker-compose.yml                            # Orquestación de contenedores
+└── pom.xml                                       # Dependencias del proyecto (Maven)
+```
 
-## Control de versiones
--Git version 2.34.1
--Git hub
+## 🚦 Primeros Pasos
 
-## Base de Datos
--Mysql y Mysql Workbench 8.0.28
+### Ejecución Local con Maven
+Si tienes Java 11 y Maven instalados, puedes ejecutar el proyecto directamente:
 
-## Gestion de peticiones GET POST Delete o PUT
--Postman Version 9.15.2
+1. **Configurar la base de datos**:
+   Asegúrate de que tienes un servidor MySQL corriendo y actualiza `src/main/resources/application.properties` con tus credenciales.
 
-## Imagenes de Sistemas Operativos
--Ubuntu server 18.04.6-live-server-amd64
+2. **Ejecutar la aplicación**:
+   ```bash
+   # En Windows
+   mvnw.cmd spring-boot:run
 
-## (Opcional)
--Se puede usar Azure como alternativa para agilizar la creacion de la maquina virtual y ahorrar pasos para ejecutarlo en Docker o Kubernets.
+   # En Unix/macOS
+   ./mvnw spring-boot:run
+   ```
 
-## configuraciones adicionales
-Usar mvn para ejecutar
-#
-Windows example:
--mvnw.cmd spring-boot:run
-#
-Unix based:
--mvwn spring-boot:run 
-#
-Acceso usando localhost no se ha solucionado por default entraria al puerto 8080
+### Ejecución con Docker (Recomendado)
+El proyecto incluye configuración para levantar la aplicación y una base de datos PostgreSQL automáticamente:
+
+```bash
+docker-compose up --build
+```
+> [!NOTE]
+> Por defecto, la aplicación estará disponible en `http://localhost:8080`.
+
+## 📡 Endpoints de la API - `/persona`
+
+| Método | Endpoint | Descripción |
+| :--- | :--- | :--- |
+| **GET** | `/persona` | Obtiene la lista de todas las personas. |
+| **POST** | `/persona` | Crea o guarda una nueva persona. |
+| **GET** | `/persona/{id}` | Busca una persona específica por su ID. |
+| **DELETE** | `/persona/{id}` | Elimina una persona por su ID. |
+
+## 📋 Ejemplos de Petición (JSON)
+
+Para guardar una persona (**POST** `/persona`):
+```json
+{
+  "nombre": "David",
+  "email": "david@example.com",
+  "prioridad": 1
+}
+```
+
+## 🎬 Referencias y Tutoriales
+
+Si deseas profundizar en la implementación de este tipo de APIs, puedes consultar estos recursos:
+- [Tutorial de Spring Boot & MySQL](https://www.youtube.com/watch?v=vTu2HQrXtyw)
+- [Gestión de APIs REST con Spring](https://www.youtube.com/watch?v=VTfFpgaSIDw)
+
+## 🔧 Solución de Problemas
+
+- **Fallo al ejecutar `mvnw`**: Asegúrate de que tu variable de entorno `JAVA_HOME` apunte a una versión compatible (Java 11).
+- **Puerto 8080 ocupado**: Puedes cambiar el puerto en `application.properties` agregando `server.port=9090`.
+- **Conexión a BD**: Verifica que el usuario y contraseña coincidan con los de tu servidor local.
